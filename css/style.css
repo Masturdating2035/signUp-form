@@ -2,9 +2,9 @@
 @font-face {
     font-family: shabnam;
     src: url('../fonts/Shabnam-WOL.eot'),
-    url('../fonts/Shabnam-WOL.woff2') format('woff2'),
-    url('../fonts/Shabnam-WOL.woff') format('woff'),
-    url('../fonts/Shabnam-WOL.ttf') format('truetype');
+        url('../fonts/Shabnam-WOL.woff2') format('woff2'),
+        url('../fonts/Shabnam-WOL.woff') format('woff'),
+        url('../fonts/Shabnam-WOL.ttf') format('truetype');
     font-weight: normal;
 }
 
@@ -127,7 +127,7 @@ header span i {
 
 /***** Left Side *****/
 .leftSide {
-    width:50vw;
+    width: 50vw;
     height: 89vh;
     display: flex;
     flex-direction: column;
@@ -210,4 +210,27 @@ header span i {
 
 .leftSide .palette ul li.red:hover {
     border-radius: 50%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rightSide {
+        width: 100%;
+    }
+
+    .leftSide {
+        width: 100%;
+    }
+
 }

@@ -22,19 +22,35 @@ $(document).ready(function () {
 
 
     $('.palette ul li.yellow').click(function () {
-        $('.leftSide .pic').css('background','#fdd365')
+        $('.leftSide .pic').css('background', '#fdd365')
     })
 
     $('.palette ul li.green').click(function () {
-        $('.leftSide .pic').css('background','#75b79e')
+        $('.leftSide .pic').css('background', '#75b79e')
     })
 
     $('.palette ul li.blue').click(function () {
-        $('.leftSide .pic').css('background','#4a47a3')
+        $('.leftSide .pic').css('background', '#4a47a3')
     })
 
     $('.palette ul li.red').click(function () {
-        $('.leftSide .pic').css('background','#f67280')
+        $('.leftSide .pic').css('background', '#f67280')
     })
 
+
+
+
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 160) {
+            $('header').addClass('sticky');
+            $('.sticky').slideDown('slow');
+
+        } else {
+
+            $('header').removeClass('sticky');
+
+        }
+    })
+    
 })
