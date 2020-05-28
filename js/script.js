@@ -92,13 +92,16 @@ $(document).ready(function () {
     }
 
 
-    $("#form").on("submit", (e) => {
-        e.preventDefault();
-        isEmpty([$("#username"), $("#email"), $("#password"), $("#password2")]);
-        checkLength($("#username"), 3, 15);
-        checkLength($("#password"), 6, 25);
-        isEmail($("#email"));
-        isMatch($("#password"), $("#password2"));
+     $("#form :input").each(function () {
+        $(this).on("focusout", () => {
+            isEmpty([$(this)]);
+            if ($(this).attr("id") == "username" || $(this).attr("id") == "password") {
+                checkLength($(this), 3, 15);
+            } else if ($(this).attr("id") == "email") {
+                isEmail($(this));
+            } else if ($(this).attr("id") == "password2") {
+                isMatch($("#password"), $("#password2"));
+            }
+        });
     });
-
 })
