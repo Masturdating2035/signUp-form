@@ -14,9 +14,161 @@
     box-sizing: border-box;
 }
 
+
 body {
+    background-color: #f8f4d5;
     font-family: shabnam;
     direction: rtl;
+}
+
+
+.header,
+.content {
+   visibility: hidden;
+}
+
+.loading {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    filter: url('#goo');
+    animation: rotate-move 2s ease-in-out infinite;
+}
+
+.dot {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.dot-1 {
+    background-color: #ffe386;
+    animation: dot-1-move 2s ease infinite,
+        index 6s -2s ease infinite;
+}
+
+.dot-2 {
+    background-color: #10beae;
+    animation: dot-2-move 2s ease infinite,
+        index 6s -4s ease infinite;
+}
+
+.dot-3 {
+    background-color: #f74d75;
+    animation: dot-3-move 2s ease infinite,
+        index 6s ease infinite;
+}
+
+
+@keyframes index {
+
+    0%,
+    100% {
+        z-index: 3
+    }
+
+    33.33% {
+        z-index: 2
+    }
+
+    66.6% {
+        z-index: 1
+    }
+}
+
+
+@keyframes rotate-move {
+    55% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+
+    80% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
+@keyframes dot-1-move {
+    20% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: translate(16px, 12px) scale(.45);
+    }
+
+    60% {
+        transform: translate(80px, 60px) scale(.45);
+    }
+
+    80% {
+        transform: translate(80px, 60px) scale(.45);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes dot-2-move {
+    20% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: translate(-16px, 12px) scale(.45);
+    }
+
+    60% {
+        transform: translate(-80px, 60px) scale(.45);
+    }
+
+    80% {
+        transform: translate(-80px, 60px) scale(.45);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes dot-3-move {
+    20% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: translateY(-18px) scale(.45);
+    }
+
+    60% {
+        transform: translateY(-90px) scale(.45);
+    }
+
+    80% {
+        transform: translateY(-90px) scale(.45);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
 }
 
 /***** header *****/
@@ -101,7 +253,7 @@ header span i {
 }
 
 
-.rightSide form p input {
+.rightSide form input {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -111,7 +263,7 @@ header span i {
     outline: none;
 }
 
-.rightSide form p input.submit {
+.rightSide form input.submit {
     background-color: #596157;
     border: none;
     border-radius: 5px;
@@ -120,7 +272,7 @@ header span i {
     transition: 300ms;
 }
 
-.rightSide form p input.submit:hover {
+.rightSide form input.submit:hover {
     background-color: #909690;
 }
 
@@ -233,4 +385,68 @@ header span i {
         width: 100%;
     }
 
+}
+
+.form {
+    padding: 30px 40px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    color: #777;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.form-control input:focus {
+    outline: 0;
+    border-color: #777;
+}
+
+.form-control.success input {
+    border-color: green;
+}
+
+.form-control.error input {
+    border-color: red;
+}
+
+.form-control small {
+    color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.form-control.error small {
+    visibility: visible;
+}
+
+.form button {
+    cursor: pointer;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
 }
